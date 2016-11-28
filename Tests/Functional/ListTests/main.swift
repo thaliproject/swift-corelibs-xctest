@@ -5,7 +5,7 @@
 // RUN: %T/ListTests --verify %t_json > %t_verify
 // RUN: %{xctest_checker} %t_verify verify_json.expected
 
-#if os(Linux) || os(FreeBSD)
+#if USE_IMPORT_FOUNDATION
     import XCTest
     import Foundation
 #else

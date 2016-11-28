@@ -11,7 +11,7 @@
 //  Expectations with a specified predicate and object to evaluate.
 //
 
-#if os(Linux) || os(FreeBSD)
+#if USE_IMPORT_FOUNDATION
     import Foundation
 #else
     import SwiftFoundation

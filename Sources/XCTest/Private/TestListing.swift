@@ -11,7 +11,7 @@
 //  Implementation of the mode for printing the list of tests.
 //
 
-#if os(Linux) || os(FreeBSD)
+#if USE_IMPORT_FOUNDATION
     import Foundation
 #else
     import SwiftFoundation

@@ -180,16 +180,20 @@ class GenericUnixStrategy:
         else:
             libdispatch_args = ""
 
+        build_config_options = "-D USE_IMPORT_FOUNDATION"
+
         run("{swiftc} -Xcc -fblocks -c {style_options} -emit-object -emit-module "
             "-module-name XCTest -module-link-name XCTest -parse-as-library "
             "-emit-module-path {build_dir}/XCTest.swiftmodule "
             "-force-single-frontend-invocation "
             "-I {foundation_build_dir} -I {core_foundation_build_dir} "
+            "{build_config_options} "
             "{libdispatch_args} "
             "{source_paths} -o {build_dir}/XCTest.o".format(
                 swiftc=swiftc,
                 style_options=style_options,
                 build_dir=build_dir,
+                build_config_options=build_config_options,
                 foundation_build_dir=foundation_build_dir,
                 core_foundation_build_dir=core_foundation_build_dir,
                 libdispatch_args=libdispatch_args,
@@ -241,7 +245,9 @@ class GenericUnixStrategy:
                 'error.'.format(lit_path))
 
         # FIXME: Allow these to be specified by the Swift build script.
-        lit_flags = "-sv --no-progress-bar"
+        lit_flags = (
+            "-sv --no-progress-bar "
+            "-D USE_IMPORT_FOUNDATION ")
         tests_path = os.path.join(SOURCE_DIR, "Tests", "Functional")
         foundation_build_dir = os.path.abspath(args.foundation_build_dir)
         core_foundation_build_dir = GenericUnixStrategy.core_foundation_build_dir(
@@ -265,6 +271,7 @@ class GenericUnixStrategy:
             'BUILT_PRODUCTS_DIR={built_products_dir} '
             'FOUNDATION_BUILT_PRODUCTS_DIR={foundation_build_dir} '
             'CORE_FOUNDATION_BUILT_PRODUCTS_DIR={core_foundation_build_dir} '
+            '{build_config_options} '
             '{libdispatch_src_args} '
             '{lit_path} {lit_flags} '
             '{tests_path}'.format(

@@ -2,7 +2,7 @@
 // RUN: %T/FailureMessagesTestCase > %t || true
 // RUN: %{xctest_checker} %t %s
 
-#if os(Linux) || os(FreeBSD)
+#if USE_IMPORT_FOUNDATION
     import XCTest
 #else
     import SwiftXCTest

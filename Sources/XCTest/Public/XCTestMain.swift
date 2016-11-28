@@ -12,12 +12,16 @@
 //  for running tests and some infrastructure for running them.
 //
 
-#if os(Linux) || os(FreeBSD)
-    import Glibc
+#if USE_IMPORT_FOUNDATION
     import Foundation
 #else
-    import Darwin
     import SwiftFoundation
+#endif
+
+#if os(Linux) || os(FreeBSD)
+    import Glibc
+#else
+    import Darwin
 #endif
 
 /// Starts a test run for the specified test cases.

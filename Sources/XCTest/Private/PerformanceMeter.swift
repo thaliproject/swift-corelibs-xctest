@@ -11,7 +11,7 @@
 //  Measures the performance of a block of code and reports the results.
 //
 
-#if os(Linux) || os(FreeBSD)
+#if USE_IMPORT_FOUNDATION
     import Foundation
 #else
     import SwiftFoundation
