@@ -57,6 +57,14 @@ open class XCTestSuite: XCTest {
         _name = name
     }
 
+    public convenience init(name: String, testCases: [XCTestCaseEntry]) {
+        self.init(name: name)
+
+        testCases
+            .map(XCTestCaseSuite.init)
+            .forEach(addTest)
+    }
+
     /// Adds a test (either an `XCTestSuite` or an `XCTestCase` to this
     /// collection.
     open func addTest(_ test: XCTest) {
