@@ -87,7 +87,7 @@ class DarwinStrategy:
             style_options = "Release"
 
         run("xcodebuild -workspace {source_dir}/XCTest.xcworkspace "
-            "-scheme SwiftXCTest "
+            "-scheme SwiftXCTest-iOS "
             "-configuration {style_options} "
             "SWIFT_EXEC=\"{swiftc}\" "
             "SWIFT_LINK_OBJC_RUNTIME=YES "
