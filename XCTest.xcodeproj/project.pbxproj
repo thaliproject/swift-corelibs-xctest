@@ -61,7 +61,6 @@
 		AE2FE1131CFE86E6003EF0D7 /* XCTestCaseSuite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTestCaseSuite.swift; sourceTree = "<group>"; };
 		AE2FE1141CFE86E6003EF0D7 /* XCTestInternalObservation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTestInternalObservation.swift; sourceTree = "<group>"; };
 		AE63767D1D01ED17002C0EA8 /* TestListing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestListing.swift; sourceTree = "<group>"; };
-		AE7DD6061C8DC6C0006FC722 /* Functional */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Functional; sourceTree = "<group>"; };
 		B1384A411C1B3E8700EDF031 /* CONTRIBUTING.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
 		B1384A421C1B3E8700EDF031 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		B1384A431C1B3E8700EDF031 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -91,7 +90,6 @@
 			isa = PBXGroup;
 			children = (
 				C265F6661C3AEB6A00520CF9 /* Sources */,
-				DA78F7E71C4039410082E15B /* Tests */,
 				5B5D86DC1BBC74AD00234F36 /* Products */,
 				DA7805FB1C6704CC003C6636 /* Linked Libraries */,
 				EA3E74BC1BF2B6D700635A73 /* Linux Build */,
@@ -181,14 +179,6 @@
 			name = "Linked Libraries";
 			sourceTree = "<group>";
 		};
-		DA78F7E71C4039410082E15B /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				AE7DD6061C8DC6C0006FC722 /* Functional */,
-			);
-			path = Tests;
-			sourceTree = "<group>";
-		};
 		DA9D44131D920A3500108768 /* Asynchronous */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,23 +213,6 @@
 		};
 /* End PBXHeadersBuildPhase section */
 
-/* Begin PBXLegacyTarget section */
-		DAA333B51C267AD6000CC115 /* SwiftXCTestFunctionalTests */ = {
-			isa = PBXLegacyTarget;
-			buildArgumentsString = "-sv --no-progress-bar Tests/Functional";
-			buildConfigurationList = DAA333B81C267AD6000CC115 /* Build configuration list for PBXLegacyTarget "SwiftXCTestFunctionalTests" */;
-			buildPhases = (
-			);
-			buildToolPath = "$(SRCROOT)/../llvm/utils/lit/lit.py";
-			buildWorkingDirectory = "";
-			dependencies = (
-			);
-			name = SwiftXCTestFunctionalTests;
-			passBuildSettingsInEnvironment = 1;
-			productName = SwiftXCTestFunctionalTests;
-		};
-/* End PBXLegacyTarget section */
-
 /* Begin PBXNativeTarget section */
 		19D66F931DE6F57E00C112C0 /* SwiftXCTest-iOS */ = {
 			isa = PBXNativeTarget;
@@ -269,11 +242,6 @@
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Apple;
-				TargetAttributes = {
-					DAA333B51C267AD6000CC115 = {
-						CreatedOnToolsVersion = 7.2;
-					};
-				};
 			};
 			buildConfigurationList = 5B5D86D51BBC74AD00234F36 /* Build configuration list for PBXProject "XCTest" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -289,7 +257,6 @@
 			projectRoot = "";
 			targets = (
 				19D66F931DE6F57E00C112C0 /* SwiftXCTest-iOS */,
-				DAA333B51C267AD6000CC115 /* SwiftXCTestFunctionalTests */,
 			);
 		};
 /* End PBXProject section */
@@ -488,33 +455,6 @@
 			};
 			name = Release;
 		};
-		DAA333B61C267AD6000CC115 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DEBUGGING_SYMBOLS = YES;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EXEC = "$(TOOLCHAIN_DIR)/usr/bin/swiftc";
-			};
-			name = Debug;
-		};
-		DAA333B71C267AD6000CC115 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EXEC = "$(TOOLCHAIN_DIR)/usr/bin/swiftc";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -532,15 +472,6 @@
 			buildConfigurations = (
 				5B5D86E11BBC74AD00234F36 /* Debug */,
 				5B5D86E21BBC74AD00234F36 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DAA333B81C267AD6000CC115 /* Build configuration list for PBXLegacyTarget "SwiftXCTestFunctionalTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DAA333B61C267AD6000CC115 /* Debug */,
-				DAA333B71C267AD6000CC115 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
